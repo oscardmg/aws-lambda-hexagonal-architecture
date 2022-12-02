@@ -21,7 +21,7 @@ Resources:
       Environment:
         Variables:
           DB_TABLE: !Ref StocksTable
-          API_KEY: API_KEY_FOR_CURRENCIES_API
+          API_KEY: G11e8C21n5RJZFdz8oMHxD1JPv8k0aTi
           # CACHE_URL: aws_elasticache_url_insert_here
           # CACHE_PORT: aws_elasticache_port_insert_here
       # VpcConfig:
@@ -46,7 +46,10 @@ Resources:
       KeySchema:
       - AttributeName: STOCK_ID
         KeyType: HASH
-      BillingMode: PAY_PER_REQUEST
+      BillingMode: PROVISIONED
+      ProvisionedThroughput: 
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
   StocksGateway:
     Type: AWS::Serverless::HttpApi
     Properties:

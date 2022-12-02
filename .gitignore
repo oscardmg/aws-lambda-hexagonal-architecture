@@ -2,6 +2,10 @@
 /dist
 /tmp
 /out-tsc
+.history
+.aws-sam
+.serverless
+.DS_Store
 
 # Runtime data
 pids
