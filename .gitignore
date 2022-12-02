@@ -4,7 +4,7 @@
 /out-tsc
 .history
 .DS_Store
-
+.aws-sam
 # Runtime data
 pids
 *.pid

@@ -8,7 +8,7 @@ const documentClient = new AWS.DynamoDB.DocumentClient();
 
 const DB_TABLE = process.env.DB_TABLE;
 
-export class Repository implements RepositoryPort {
+export class StockRepositoryAdapter implements RepositoryPort {
   async get(stockID: any): Promise<any> {
     let params = {
       TableName: DB_TABLE,
