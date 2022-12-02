@@ -5,39 +5,13 @@ useDotenv: true
 provider:
   name: aws
   runtime: nodejs16.x
-  environment:
-    # DB_TABLE: !Ref StocksTable
-    DB_TABLE: stock
-    API_KEY: G11e8C21n5RJZFdz8oMHxD1JPv8k0aTi
 
 functions:
   hello:
-    handler: app.lambdaHandler
+    handler: src/app.handler
     events:
-      - http: 
-          method: GET
-          path: /test/{StockID}
-          request:
-            parameters:
-              paths:
-                StockID: true
-
-resources:
-  Resources:
-    StocksTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: STOCK
-        AttributeDefinitions:
-        - AttributeName: STOCK_ID
-          AttributeType: S
-        KeySchema:
-        - AttributeName: STOCK_ID
-          KeyType: HASH
-        BillingMode: PROVISIONED
-        ProvisionedThroughput: 
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+      - httpApi: GET /test
 
 plugins:
   - serverless-offline
+  - serverless-plugin-typescript

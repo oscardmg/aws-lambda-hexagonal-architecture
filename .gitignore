@@ -3,10 +3,8 @@
 /tmp
 /out-tsc
 .history
-.aws-sam
-.serverless
 .DS_Store
-
+.aws-sam
 # Runtime data
 pids
 *.pid
